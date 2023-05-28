@@ -9,28 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d5df648-41c7-4095-80f3-4033181371c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/ClientServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ViewList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    <list default="true" id="5d5df648-41c7-4095-80f3-4033181371c2" name="Changes" comment="1dsf">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletViewList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ViewList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +31,7 @@
       <list>
         <option value="Class" />
         <option value="Interface" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -69,14 +59,15 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Java/DEV_J200EE/DEV_J200EE_LAB1_1",
+    "last_opened_file_path": "H:/Java/DEV_J200EE/ИНИкулин/j200-main (1)/j200-main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -85,6 +76,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.dev_j200ee_lab1_1.sevices" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="openRunningConfigInTab" value="true" />
   </component>
@@ -174,11 +170,24 @@
       <workItem from="1684423889083" duration="6494000" />
       <workItem from="1684781045170" duration="167000" />
       <workItem from="1684946242922" duration="6451000" />
-      <workItem from="1685027606875" duration="576000" />
+      <workItem from="1685027606875" duration="8528000" />
+      <workItem from="1685261196897" duration="2495000" />
     </task>
+    <task id="LOCAL-00001" summary="1dsf">
+      <created>1685028447485</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685028447485</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1dsf" />
+    <option name="LAST_COMMIT_MESSAGE" value="1dsf" />
   </component>
 </project>

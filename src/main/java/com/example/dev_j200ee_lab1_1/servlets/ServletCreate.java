@@ -1,5 +1,6 @@
 package com.example.dev_j200ee_lab1_1.servlets;
 
+import com.example.dev_j200ee_lab1_1.model.Client;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -90,6 +91,7 @@ public class ServletCreate extends HttpServlet {
         String address = req.getParameter("address");
         String client = req.getParameter("client");
         //out.println(clientid?c);
+        //Client client1 = new Client(clientid, )
     }
 
 

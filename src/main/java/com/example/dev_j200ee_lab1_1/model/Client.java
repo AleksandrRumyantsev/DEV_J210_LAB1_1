@@ -1,5 +1,6 @@
 package com.example.dev_j200ee_lab1_1.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +17,7 @@ public class Client {
         this.client_name = client_name;
         this.type = type;
         this.added = added;
+        addresses = new ArrayList<>();
         //this.addresses = addresses;
     }
 
