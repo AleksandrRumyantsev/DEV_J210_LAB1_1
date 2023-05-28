@@ -10,16 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d5df648-41c7-4095-80f3-4033181371c2" name="Changes" comment="1dsf">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletViewList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_05_2023_14_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_05_2023_14_02__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_05_2023_14_02__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_05_2023_14_02__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ViewList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/entities/AddressEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/entities/AddressEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletDelete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletDelete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletUpdate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,13 +26,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="after_setting_persistance" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -46,13 +48,16 @@
     </option>
   </component>
   <component name="ProjectId" id="2PYduWtus06u2oHuOX3KsSOejDc" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JPA.DatabaseSchemaImportDialog": "2c95d769-514d-41f5-b5b5-1b4427ba69f1",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -78,7 +83,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.dev_j200ee_lab1_1.entities" />
       <recent name="com.example.dev_j200ee_lab1_1.sevices" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="com.example.dev_j200ee_lab1_1.entities" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -180,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685028447485</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1dsf">
+      <created>1685271915243</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685271915243</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

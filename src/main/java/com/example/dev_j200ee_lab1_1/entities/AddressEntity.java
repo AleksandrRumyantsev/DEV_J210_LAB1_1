@@ -25,9 +25,6 @@ public class AddressEntity {
     @Basic
     @Column(name = "client_id")
     private Integer clientId;
-    @ManyToOne
-    @JoinColumn(name = "client_id", referencedColumnName = "clientid")
-    private ClientEntity clientByClientId;
 
     public int getAddressid() {
         return addressid;
@@ -88,13 +85,5 @@ public class AddressEntity {
     @Override
     public int hashCode() {
         return Objects.hash(addressid, ip, mac, model, address, clientId);
-    }
-
-    public ClientEntity getClientByClientId() {
-        return clientByClientId;
-    }
-
-    public void setClientByClientId(ClientEntity clientByClientId) {
-        this.clientByClientId = clientByClientId;
     }
 }
