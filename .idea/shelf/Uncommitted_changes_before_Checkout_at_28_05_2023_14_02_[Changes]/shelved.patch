@@ -1,0 +1,16 @@
+Index: META-INF/persistence.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<persistence xmlns=\"https://jakarta.ee/xml/ns/persistence\"\r\n             xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n             xsi:schemaLocation=\"https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd\"\r\n             version=\"3.0\">\r\n  <persistence-unit name=\"default\">\r\n\r\n  </persistence-unit>\r\n</persistence>\r\n
+===================================================================
+diff --git a/META-INF/persistence.xml b/META-INF/persistence.xml
+--- a/META-INF/persistence.xml	
++++ b/META-INF/persistence.xml	
+@@ -4,6 +4,6 @@
+              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+              version="3.0">
+   <persistence-unit name="default">
+-
++    <jta-data-source>java:/test_db</jta-data-source>
+   </persistence-unit>
+ </persistence>

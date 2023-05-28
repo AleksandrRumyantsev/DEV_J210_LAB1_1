@@ -1,0 +1,425 @@
+Index: src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.dev_j200ee_lab1_1.servlets;\r\n\r\nimport com.example.dev_j200ee_lab1_1.model.Client;\r\nimport jakarta.servlet.ServletException;\r\nimport jakarta.servlet.annotation.WebServlet;\r\nimport jakarta.servlet.http.HttpServlet;\r\nimport jakarta.servlet.http.HttpServletRequest;\r\nimport jakarta.servlet.http.HttpServletResponse;\r\n\r\nimport java.io.IOException;\r\nimport java.io.PrintWriter;\r\n\r\nimport static java.lang.System.out;\r\n\r\n@WebServlet(name = \"ServletCreate\", value = \"/servlet-create\")\r\npublic class ServletCreate extends HttpServlet {\r\n\r\n    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {\r\n        response.setContentType(\"text/html; charset=UTF-8\");\r\n\r\n\r\n        PrintWriter out = response.getWriter();\r\n        out.println(\"<html><body align=\\\"center\\\">\");\r\n        out.println(\"<h1> \\\"Создание новой записи\\\" </h1>\");\r\n        out.println(\"<br/>\");\r\n        out.println(\"<form action=\\\"servlet-create\\\" method=\\\"post\\\" align=\\\"center\\\">\");\r\n        out.println(\"<table align=\\\"center\\\" cellpadding=\\\"3\\\" border=\\\"0\\\" cellspacing=\\\"0\\\">\");\r\n        out.println(\"<tr>\");\r\n        out.println(\" <td>Данные клиента</td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"<tr>\");\r\n        out.println(\" <td>cliendid</td>\");\r\n        out.println(\"<td><input type=\\\"cliendid\\\" min=\\\"0\\\" name=\\\"cliendid\\\" required></td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"<tr>\");\r\n        out.println(\"<td>client_name</td>\");\r\n        out.println(\"<td><input type=\\\"client_name\\\" name=\\\"client_name\\\" maxlength=\\\"100\\\" pattern=\\\"[\\\\u0401\\\\u0451\\\\u0410-\\\\u044f]\\\" placeholder=\\\"max 100 simbols\\\" required></td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"<tr>\");\r\n        out.println(\"<td>type</td>\");\r\n        out.println(\"<td><select name=\\\"type\\\" id=\\\"type-select\\\" required>\");\r\n        out.println(\"<option value =\\\"\\\">-- Выберите тип --</option>\");\r\n        out.println(\"<option value =\\\"urik\\\">Юридическое лицо</option>\");\r\n        out.println(\"<option value =\\\"fizik\\\">Физическое лицо</option>\");\r\n        out.println(\"</select></td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"<tr>\");\r\n        out.println(\"<td>added</td>\");\r\n        out.println(\"<td><input type=\\\"added\\\" name=\\\"Добавлен (дата)\\\" pattern=\\\"[0-9]{2}.[0-9]{2}.[0-9]{4}\\\" placeholder=\\\"##.##.####\\\" required></td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"<tr>\");\r\n        out.println(\" <td>Данные устройства</td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"<tr>\");\r\n        out.println(\"<td>Сетевой IP адрес устройства</td>\");\r\n        out.println(\"<td><input type=\\\"IP\\\" name=\\\"IP\\\" pattern=\\\"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$\\\" placeholder=\\\"###.###.###.###\\\" required></td>\");\r\n       // out.println(\"<td><a href=\\\"servlet-create\\\">Добавить</a></td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"<td>Физический MAC адрес устройства</td>\");\r\n        out.println(\"<td><input type=\\\"MAC\\\" name=\\\"MAC\\\" pattern=\\\"^([0-9A-Fa-f]{2}[:]){5}([0-9A-Fa-f]{2})$\\\" placeholder=\\\"##:##:##:##:##\\\" required></td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"<td>Модель устройства</td>\");\r\n        out.println(\"<td><input type=\\\"model\\\" name=\\\"model\\\" maxlength=\\\"100\\\" placeholder=\\\"max 100 simbols\\\" required></td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"<td>Адрес места нахождения</td>\");\r\n        out.println(\"<td><input type=\\\"address\\\" name=\\\"address\\\" maxlength=\\\"200\\\" placeholder=\\\"max 200 simbols\\\" required></td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"</tr>\");\r\n        //out.println(\"<td>Клиент</td>\");\r\n        //out.println(\"<td><input type=\\\"client\\\" name=\\\"client\\\" required></td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"<tr>\");\r\n        out.println(\"<td><input type=\\\"submit\\\" value=\\\"Записать\\\"></td>\");\r\n        //out.println(\"<td><input type=\\\"add\\\" value=\\\"Добавить адресс\\\"></td>\");\r\n        out.println(\"</tr>\");\r\n        out.println(\"</form>\");\r\n        out.println(\"</body></html>\");\r\n    }\r\n\r\n    @Override\r\n    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\r\n        String clientid = req.getParameter(\"cliendid\");\r\n        String client_name = req.getParameter(\"client_name\");\r\n        String type = req.getParameter(\"type\");\r\n        String added = req.getParameter(\"added\");\r\n        String IP = req.getParameter(\"IP\");\r\n        String MAC = req.getParameter(\"MAC\");\r\n        String model = req.getParameter(\"model\");\r\n        String address = req.getParameter(\"address\");\r\n        String client = req.getParameter(\"client\");\r\n        //out.println(clientid?c);\r\n        //Client client1 = new Client(clientid, )\r\n    }\r\n\r\n\r\n\r\n    @Override\r\n    public void destroy() {\r\n        super.destroy();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java b/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java
+--- a/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java	
++++ b/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java	
+@@ -28,13 +28,13 @@
+         out.println("<tr>");
+         out.println(" <td>Данные клиента</td>");
+         out.println("</tr>");
+-        out.println("<tr>");
+-        out.println(" <td>cliendid</td>");
+-        out.println("<td><input type=\"cliendid\" min=\"0\" name=\"cliendid\" required></td>");
+-        out.println("</tr>");
++//        out.println("<tr>");
++//        out.println(" <td>cliendid</td>");
++//        out.println("<td><input type=\"cliendid\" min=\"0\" name=\"cliendid\" required></td>");
++//        out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>client_name</td>");
+-        out.println("<td><input type=\"client_name\" name=\"client_name\" maxlength=\"100\" pattern=\"[\\u0401\\u0451\\u0410-\\u044f]\" placeholder=\"max 100 simbols\" required></td>");
++        out.println("<td><input type=\"client_name\" name=\"client_name\" maxlength=\"100\" pattern=\"[\\u0401\\u0451\\u0410-\\u044f\\-\\,\\.\\s]\" placeholder=\"max 100 simbols\" required></td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>type</td>");
+@@ -44,10 +44,10 @@
+         out.println("<option value =\"fizik\">Физическое лицо</option>");
+         out.println("</select></td>");
+         out.println("</tr>");
+-        out.println("<tr>");
+-        out.println("<td>added</td>");
+-        out.println("<td><input type=\"added\" name=\"Добавлен (дата)\" pattern=\"[0-9]{2}.[0-9]{2}.[0-9]{4}\" placeholder=\"##.##.####\" required></td>");
+-        out.println("</tr>");
++//        out.println("<tr>");
++//        out.println("<td>added</td>");
++//        out.println("<td><input type=\"added\" name=\"Добавлен (дата)\" pattern=\"[0-9]{2}.[0-9]{2}.[0-9]{4}\" placeholder=\"##.##.####\" required></td>");
++//        out.println("</tr>");
+         out.println("<tr>");
+         out.println(" <td>Данные устройства</td>");
+         out.println("</tr>");
+Index: src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletDelete.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletDelete.java b/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletDelete.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletDelete.java	
+@@ -0,0 +1,22 @@
++package com.example.dev_j200ee_lab1_1.servlets;
++
++import jakarta.servlet.annotation.WebServlet;
++
++import javax.servlet.ServletException;
++import javax.servlet.http.HttpServlet;
++import javax.servlet.http.HttpServletRequest;
++import javax.servlet.http.HttpServletResponse;
++import java.io.IOException;
++
++@WebServlet(name = "ServletDelete", value = "/ServletDelete")
++public class ServletDelete extends HttpServlet {
++    @Override
++    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++
++    }
++
++    @Override
++    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++
++    }
++}
+\ No newline at end of file
+Index: src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletUpdate.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletUpdate.java b/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletUpdate.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletUpdate.java	
+@@ -0,0 +1,22 @@
++package com.example.dev_j200ee_lab1_1.servlets;
++
++import jakarta.servlet.annotation.WebServlet;
++
++import javax.servlet.ServletException;
++import javax.servlet.http.HttpServlet;
++import javax.servlet.http.HttpServletRequest;
++import javax.servlet.http.HttpServletResponse;
++import java.io.IOException;
++
++@WebServlet(name = "ServletUpdate", value = "/ServletUpdate")
++public class ServletUpdate extends HttpServlet {
++    @Override
++    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++
++    }
++
++    @Override
++    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
++
++    }
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ArtifactsWorkspaceSettings\">\r\n    <artifacts-to-build>\r\n      <artifact name=\"DEV_J200EE_LAB1_1:war exploded\" />\r\n    </artifacts-to-build>\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5d5df648-41c7-4095-80f3-4033181371c2\" name=\"Changes\" comment=\"1dsf\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletViewList.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/ClientServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ViewList.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/webapp/index.jsp\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/webapp/index.jsp\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"AnnotationType\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2PYduWtus06u2oHuOX3KsSOejDc\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"last_opened_file_path\": \"H:/Java/DEV_J200EE/ИНИкулин/j200-main (1)/j200-main\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Modules\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"preferences.pluginManager\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"DatabaseDriversLRU\": [\r\n      \"mysql\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"com.example.dev_j200ee_lab1_1.sevices\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunDashboard\">\r\n    <option name=\"openRunningConfigInTab\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"JBoss/WildFly 24.0.1.Final\" type=\"JBossConfiguration\" factoryName=\"Local\" APPLICATION_SERVER_NAME=\"JBoss/WildFly 24.0.1.Final\" ALTERNATIVE_JRE_ENABLED=\"false\">\r\n      <option name=\"OPEN_IN_BROWSER_URL\" value=\"http://localhost:8080/DEV_J200EE_LAB1_1-1.0-SNAPSHOT\" />\r\n      <deployment>\r\n        <artifact name=\"DEV_J200EE_LAB1_1:war exploded\">\r\n          <settings />\r\n        </artifact>\r\n      </deployment>\r\n      <server-settings>\r\n        <option name=\"SERVER\" />\r\n        <option name=\"BINDING_SET_NAME\" value=\"\" />\r\n        <option name=\"DOMAIN\" value=\"false\" />\r\n        <option name=\"SERVER_GROUP\" />\r\n        <option name=\"USERNAME\" value=\"\" />\r\n        <option name=\"CREDENTIAL_ALIAS\" />\r\n      </server-settings>\r\n      <predefined_log_file enabled=\"true\" id=\"JBoss\" />\r\n      <RunnerSettings RunnerId=\"Debug\">\r\n        <option name=\"DEBUG_PORT\" value=\"60527\" />\r\n      </RunnerSettings>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Cover\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Debug\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Run\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n        <option name=\"BuildArtifacts\" enabled=\"true\">\r\n          <artifact name=\"DEV_J200EE_LAB1_1:war exploded\" />\r\n        </option>\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5d5df648-41c7-4095-80f3-4033181371c2\" name=\"Changes\" comment=\"\" />\r\n      <created>1683638173163</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1683638173163</updated>\r\n      <workItem from=\"1683638174196\" duration=\"9625000\" />\r\n      <workItem from=\"1683817598696\" duration=\"2874000\" />\r\n      <workItem from=\"1684423889083\" duration=\"6494000\" />\r\n      <workItem from=\"1684781045170\" duration=\"167000\" />\r\n      <workItem from=\"1684946242922\" duration=\"6451000\" />\r\n      <workItem from=\"1685027606875\" duration=\"8528000\" />\r\n      <workItem from=\"1685261196897\" duration=\"2495000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"1dsf\">\r\n      <created>1685028447485</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1685028447485</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"1dsf\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"1dsf\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -10,16 +10,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="5d5df648-41c7-4095-80f3-4033181371c2" name="Changes" comment="1dsf">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletViewList.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/MySQL.docx" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/entities/AddressEntity.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/entities/ClientEntity.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletDelete.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletUpdate.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/META-INF/persistence.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ViewList.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -29,9 +27,10 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="Class" />
+         <option value="Interface" />
+         <option value="AnnotationType" />
++        <option value="Servlet" />
++        <option value="Class" />
+       </list>
+     </option>
+   </component>
+@@ -46,13 +45,17 @@
+     </option>
+   </component>
+   <component name="ProjectId" id="2PYduWtus06u2oHuOX3KsSOejDc" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
++    "JPA.DatabaseSchemaImportDialog": "2c95d769-514d-41f5-b5b5-1b4427ba69f1",
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+@@ -67,7 +70,7 @@
+     "project.structure.last.edited": "Modules",
+     "project.structure.proportion": "0.15",
+     "project.structure.side.proportion": "0.2",
+-    "settings.editor.selected.configurable": "preferences.pluginManager",
++    "settings.editor.selected.configurable": "fileTemplates",
+     "vue.rearranger.settings.migration": "true"
+   },
+   "keyToStringList": {
+@@ -79,6 +82,10 @@
+   <component name="RecentsManager">
+     <key name="CreateClassDialog.RecentsKey">
+       <recent name="com.example.dev_j200ee_lab1_1.sevices" />
++    </key>
++    <key name="ImportMappingsDialog.RecentPackages">
++      <recent name="com.example.dev_j200ee_lab1_1.entities" />
++      <recent name="" />
+     </key>
+   </component>
+   <component name="RunDashboard">
+@@ -171,7 +178,7 @@
+       <workItem from="1684781045170" duration="167000" />
+       <workItem from="1684946242922" duration="6451000" />
+       <workItem from="1685027606875" duration="8528000" />
+-      <workItem from="1685261196897" duration="2495000" />
++      <workItem from="1685261196897" duration="5632000" />
+     </task>
+     <task id="LOCAL-00001" summary="1dsf">
+       <created>1685028447485</created>
+@@ -180,13 +187,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1685028447485</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="1dsf">
++      <created>1685263883382</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1685263883382</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
+   <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="1dsf" />
+     <option name="LAST_COMMIT_MESSAGE" value="1dsf" />
+   </component>
+Index: src/main/java/com/example/dev_j200ee_lab1_1/entities/AddressEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/dev_j200ee_lab1_1/entities/AddressEntity.java b/src/main/java/com/example/dev_j200ee_lab1_1/entities/AddressEntity.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/example/dev_j200ee_lab1_1/entities/AddressEntity.java	
+@@ -0,0 +1,100 @@
++package com.example.dev_j200ee_lab1_1.entities;
++
++import javax.persistence.*;
++import java.util.Objects;
++
++@Entity
++@Table(name = "address", schema = "test_db", catalog = "")
++public class AddressEntity {
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    @Id
++    @Column(name = "addressid")
++    private int addressid;
++    @Basic
++    @Column(name = "ip")
++    private String ip;
++    @Basic
++    @Column(name = "mac")
++    private String mac;
++    @Basic
++    @Column(name = "model")
++    private String model;
++    @Basic
++    @Column(name = "address")
++    private String address;
++    @Basic
++    @Column(name = "client_id")
++    private Integer clientId;
++    @ManyToOne
++    @JoinColumn(name = "client_id", referencedColumnName = "clientid")
++    private ClientEntity clientByClientId;
++
++    public int getAddressid() {
++        return addressid;
++    }
++
++    public void setAddressid(int addressid) {
++        this.addressid = addressid;
++    }
++
++    public String getIp() {
++        return ip;
++    }
++
++    public void setIp(String ip) {
++        this.ip = ip;
++    }
++
++    public String getMac() {
++        return mac;
++    }
++
++    public void setMac(String mac) {
++        this.mac = mac;
++    }
++
++    public String getModel() {
++        return model;
++    }
++
++    public void setModel(String model) {
++        this.model = model;
++    }
++
++    public String getAddress() {
++        return address;
++    }
++
++    public void setAddress(String address) {
++        this.address = address;
++    }
++
++    public Integer getClientId() {
++        return clientId;
++    }
++
++    public void setClientId(Integer clientId) {
++        this.clientId = clientId;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        AddressEntity that = (AddressEntity) o;
++        return addressid == that.addressid && Objects.equals(ip, that.ip) && Objects.equals(mac, that.mac) && Objects.equals(model, that.model) && Objects.equals(address, that.address) && Objects.equals(clientId, that.clientId);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(addressid, ip, mac, model, address, clientId);
++    }
++
++    public ClientEntity getClientByClientId() {
++        return clientByClientId;
++    }
++
++    public void setClientByClientId(ClientEntity clientByClientId) {
++        this.clientByClientId = clientByClientId;
++    }
++}
+Index: src/main/java/com/example/dev_j200ee_lab1_1/entities/ClientEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/dev_j200ee_lab1_1/entities/ClientEntity.java b/src/main/java/com/example/dev_j200ee_lab1_1/entities/ClientEntity.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/example/dev_j200ee_lab1_1/entities/ClientEntity.java	
+@@ -0,0 +1,79 @@
++package com.example.dev_j200ee_lab1_1.entities;
++
++import javax.persistence.*;
++import java.sql.Timestamp;
++import java.util.Collection;
++import java.util.Objects;
++
++@Entity
++@Table(name = "client", schema = "test_db", catalog = "")
++public class ClientEntity {
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    @Id
++    @Column(name = "clientid")
++    private int clientid;
++    @Basic
++    @Column(name = "client_name")
++    private String clientName;
++    @Basic
++    @Column(name = "c_type")
++    private String cType;
++    @Basic
++    @Column(name = "added")
++    private Timestamp added;
++    @OneToMany(mappedBy = "clientByClientId")
++    private Collection<AddressEntity> addressesByClientid;
++
++    public int getClientid() {
++        return clientid;
++    }
++
++    public void setClientid(int clientid) {
++        this.clientid = clientid;
++    }
++
++    public String getClientName() {
++        return clientName;
++    }
++
++    public void setClientName(String clientName) {
++        this.clientName = clientName;
++    }
++
++    public String getcType() {
++        return cType;
++    }
++
++    public void setcType(String cType) {
++        this.cType = cType;
++    }
++
++    public Timestamp getAdded() {
++        return added;
++    }
++
++    public void setAdded(Timestamp added) {
++        this.added = added;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        ClientEntity that = (ClientEntity) o;
++        return clientid == that.clientid && Objects.equals(clientName, that.clientName) && Objects.equals(cType, that.cType) && Objects.equals(added, that.added);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(clientid, clientName, cType, added);
++    }
++
++    public Collection<AddressEntity> getAddressesByClientid() {
++        return addressesByClientid;
++    }
++
++    public void setAddressesByClientid(Collection<AddressEntity> addressesByClientid) {
++        this.addressesByClientid = addressesByClientid;
++    }
++}
