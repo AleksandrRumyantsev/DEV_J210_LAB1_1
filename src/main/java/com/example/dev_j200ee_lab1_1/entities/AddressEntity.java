@@ -1,6 +1,7 @@
 package com.example.dev_j200ee_lab1_1.entities;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
 @Entity
@@ -25,6 +26,10 @@ public class AddressEntity {
     @Basic
     @Column(name = "client_id")
     private Integer clientId;
+
+    @JoinColumn(name = "client")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private ClientEntity client;
 
     public int getAddressid() {
         return addressid;

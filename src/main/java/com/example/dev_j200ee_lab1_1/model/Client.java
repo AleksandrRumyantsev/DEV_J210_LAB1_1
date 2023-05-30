@@ -12,11 +12,19 @@ public class Client {
     private Date added;
     private List<Address> addresses;
 
-    public Client(int clientid, String client_name, String type, Date added) {
+    public Client(int clientid,String client_name, String type, Date added) {
         this.clientid = clientid;
         this.client_name = client_name;
         this.type = type;
         this.added = added;
+        addresses = new ArrayList<>();
+        //this.addresses = addresses;
+    }
+    public Client( String client_name, String type) {
+        //this.clientid = clientid;
+        this.client_name = client_name;
+        this.type = type;
+        //this.added = added;
         addresses = new ArrayList<>();
         //this.addresses = addresses;
     }

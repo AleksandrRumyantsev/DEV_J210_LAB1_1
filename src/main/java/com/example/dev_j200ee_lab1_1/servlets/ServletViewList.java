@@ -34,7 +34,7 @@ public class ServletViewList extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
+        out.println("<html><body><center>");
         out.println("<h1>Все клиенты</h1>");
         out.println("<form action=\"ServletViewList\" method=\"get\" align=\"center\">\n" +
                 "    <input type=\"text\" name=\"filter\">\n" +
@@ -50,6 +50,8 @@ public class ServletViewList extends HttpServlet {
         out.println("<th>MAC</th>");
         out.println("<th>Model</th>");
         out.println("<th>Address</th>");
+        out.println("<th>Delete</th>");
+        out.println("<th>Update</th>");
         out.println("</tr>");
         for(Client client : clientMap.keySet()){
             if(client.getAddresses().size()>0) {
@@ -63,6 +65,8 @@ public class ServletViewList extends HttpServlet {
                     out.println("<td>" + address.getMac() + "</td>");
                     out.println("<td>" + address.getModel() + "</td>");
                     out.println("<td>" + address.getAddress() + "</td>");
+                    out.println("<td> <a href=\"servlet-delete\">Delete</a></td>");
+                    out.println("<td> <a href=\"servlet-update\">Update</a></td>");
                     out.println("</tr>");
                 }
             }else {
@@ -77,7 +81,11 @@ public class ServletViewList extends HttpServlet {
             }
         }
         out.println("</table>");
-        out.println("</body></html>");
+        out.println(" <br> </br>");
+        out.println("<form action=\"servlet-create\" method=\"get\" align=\"center\">");
+        out.println("<button  onclick=\"href=\"servlet-create\">Create<//button>");
+        out.println("</form>");
+        out.println("</center></body></html>");
     }
     private Map<Client, List<Address>> filter(List<Client> clients, String filterparam){
         Map<Client, List<Address>> clientMap = new HashMap<>();

@@ -3,6 +3,7 @@ package com.example.dev_j200ee_lab1_1.model;
 import java.util.Objects;
 
 public class Address {
+    private int addressid;
     private String ip;
     private String mac;
     private String model;
@@ -18,6 +19,13 @@ public class Address {
         this.client = client;
     }
 
+    public int getAddressid() {
+        return addressid;
+    }
+
+    public void setAddressid(int addressid) {
+        this.addressid = addressid;
+    }
 
     public String getMac() {
         return mac;

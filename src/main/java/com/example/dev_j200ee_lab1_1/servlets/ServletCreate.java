@@ -1,5 +1,6 @@
 package com.example.dev_j200ee_lab1_1.servlets;
 
+import com.example.dev_j200ee_lab1_1.model.Address;
 import com.example.dev_j200ee_lab1_1.model.Client;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,8 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import static java.lang.System.out;
 
 @WebServlet(name = "ServletCreate", value = "/servlet-create")
 public class ServletCreate extends HttpServlet {
@@ -85,13 +84,15 @@ public class ServletCreate extends HttpServlet {
         String client_name = req.getParameter("client_name");
         String type = req.getParameter("type");
         String added = req.getParameter("added");
-        String IP = req.getParameter("IP");
-        String MAC = req.getParameter("MAC");
+        String ip = req.getParameter("IP");
+        String mac = req.getParameter("MAC");
         String model = req.getParameter("model");
         String address = req.getParameter("address");
         String client = req.getParameter("client");
-        //out.println(clientid?c);
-        //Client client1 = new Client(clientid, )
+
+        Client client1 = new Client(client_name,type );
+        Address address1 = new Address(ip,mac,model,address,client1);
+
     }
 
 

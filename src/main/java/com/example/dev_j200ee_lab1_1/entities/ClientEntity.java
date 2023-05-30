@@ -1,9 +1,9 @@
 package com.example.dev_j200ee_lab1_1.entities;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.sql.Timestamp;
-import java.util.Collection;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "client", schema = "test_db", catalog = "")
@@ -21,8 +21,8 @@ public class ClientEntity {
     @Basic
     @Column(name = "added")
     private Timestamp added;
-    @OneToMany(mappedBy = "clientByClientId")
-    private Collection<AddressEntity> addressesByClientid;
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private List<AddressEntity> addressEntityList = new ArrayList<>();
 
     public int getClientid() {
         return clientid;
@@ -69,11 +69,11 @@ public class ClientEntity {
         return Objects.hash(clientid, clientName, cType, added);
     }
 
-    public Collection<AddressEntity> getAddressesByClientid() {
-        return addressesByClientid;
+    public List<AddressEntity> getAddressEntityList() {
+        return addressEntityList;
     }
 
-    public void setAddressesByClientid(Collection<AddressEntity> addressesByClientid) {
-        this.addressesByClientid = addressesByClientid;
+    public void setAddressEntityList(List<AddressEntity> addressEntityList) {
+        this.addressEntityList = addressEntityList;
     }
 }
