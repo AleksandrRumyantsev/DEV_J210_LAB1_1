@@ -9,25 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d5df648-41c7-4095-80f3-4033181371c2" name="Changes" comment="after setting SQL and persistace">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/DEV_J200EE_LAB1_1_EJB_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/repository/AppReposI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/repository/ReposImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/ejb-jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/view/add.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/web/WEB-INF/web.xml" afterDir="false" />
+    <list default="true" id="5d5df648-41c7-4095-80f3-4033181371c2" name="Changes" comment="Create is work">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletAddAddress.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2c95d769-514d-41f5-b5b5-1b4427ba69f1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2c95d769-514d-41f5-b5b5-1b4427ba69f1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySQL.docx" beforeDir="false" afterPath="$PROJECT_DIR$/MySQL.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/entities/AddressEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/entities/AddressEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/entities/ClientEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/entities/ClientEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Address.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/model/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/repository/AppReposI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/repository/AppReposI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/repository/ReposImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/repository/ReposImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletDelete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletDelete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletViewList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/servlets/ServletViewList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dev_j200ee_lab1_1/sevices/ClientServiceImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +43,7 @@
         <option value="AnnotationType" />
         <option value="Class" />
         <option value="Jsp File" />
+        <option value="Servlet" />
       </list>
     </option>
   </component>
@@ -91,9 +90,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "WithOut__SQL",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "H:/Java/DEV_J200EE/dev_j200_1",
+    "last_opened_file_path": "H:/Java/DEV_J200EE/ИНИкулин/j200-development",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -222,6 +221,12 @@
       <workItem from="1685274590259" duration="1692000" />
       <workItem from="1685276294922" duration="7779000" />
       <workItem from="1685439764487" duration="9264000" />
+      <workItem from="1685460423959" duration="1771000" />
+      <workItem from="1685473242018" duration="15589000" />
+      <workItem from="1685522887312" duration="11647000" />
+      <workItem from="1685629249418" duration="781000" />
+      <workItem from="1685632246878" duration="9987000" />
+      <workItem from="1685783710750" duration="9838000" />
     </task>
     <task id="LOCAL-00001" summary="1dsf">
       <created>1685028447485</created>
@@ -259,6 +264,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1dsf" />
-    <option name="LAST_COMMIT_MESSAGE" value="1dsf" />
+    <MESSAGE value="after setting SQL and persistace" />
+    <MESSAGE value="Create is work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create is work" />
   </component>
 </project>

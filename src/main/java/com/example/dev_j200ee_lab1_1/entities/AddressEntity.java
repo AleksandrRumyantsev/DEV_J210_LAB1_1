@@ -5,10 +5,12 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
+//@Table(name = "address")
 @Table(name = "address", schema = "test_db", catalog = "")
 public class AddressEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Basic(optional = false)
     @Column(name = "addressid")
     private int addressid;
     @Basic
@@ -24,13 +26,18 @@ public class AddressEntity {
     @Column(name = "address")
     private String address;
     @Basic
-    @Column(name = "client_id")
+    @Column(name = "clientid")
     private Integer clientId;
-
-    @JoinColumn(name = "client")
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @Basic(optional = false)
+    //@JoinColumn(insertable = false, updatable = false, name = "client_id",referencedColumnName = "clientid")
+    @JoinColumn(insertable = false, updatable = false,name = "clientid",nullable = false)
+    //@JoinColumn(name = "client_id")
+    //@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    //@ManyToOne(fetch = FetchType.LAZY)
     private ClientEntity client;
 
+    public AddressEntity(){}
     public int getAddressid() {
         return addressid;
     }
@@ -71,12 +78,21 @@ public class AddressEntity {
         this.address = address;
     }
 
-    public Integer getClientId() {
+    public int getClientId() {
         return clientId;
     }
 
     public void setClientId(Integer clientId) {
         this.clientId = clientId;
+    }
+
+    public ClientEntity getClient() {
+        return client;
+    }
+
+    public void setClient(ClientEntity client) {
+        this.client = client;
+        clientId = client.getClientid();
     }
 
     @Override
@@ -90,5 +106,18 @@ public class AddressEntity {
     @Override
     public int hashCode() {
         return Objects.hash(addressid, ip, mac, model, address, clientId);
+    }
+
+    @Override
+    public String toString() {
+        return "AddressEntity{" +
+                "addressid=" + addressid +
+                ", ip='" + ip + '\'' +
+                ", mac='" + mac + '\'' +
+                ", model='" + model + '\'' +
+                ", address='" + address + '\'' +
+                ", clientId=" + clientId +
+                ", client=" + client +
+                '}';
     }
 }

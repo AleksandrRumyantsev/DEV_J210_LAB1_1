@@ -4,7 +4,7 @@
 <head>
     <title>JSP - Hello World</title>
 </head>
-<body>
+<body><div style="text-align: center;">
 <h1><%= "DEV_J200EE_LAB1" %>
 </h1>
 <%--<br/>--%>
@@ -12,5 +12,5 @@
 <%--<br/>--%>
 <%--<a href="servlet-create">Create</a>--%>
 <a href="ServletViewList">View</a>
-</body>
+    </div></body>
 </html>
