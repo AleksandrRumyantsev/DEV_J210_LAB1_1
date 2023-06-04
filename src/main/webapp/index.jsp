@@ -11,6 +11,7 @@
 <%--<a href="hello-servlet">Hello Servlet</a>--%>
 <%--<br/>--%>
 <%--<a href="servlet-create">Create</a>--%>
+    response.sendRedirect(request.getContextPath()+"/SomeServlet");
 <a href="ServletViewList">View</a>
     </div></body>
 </html>

@@ -1,8 +1,8 @@
-package com.example.dev_j200ee_lab1_1.servlets;
+package com.example.dev_j210_lab1_1.servlets;
 
-import com.example.dev_j200ee_lab1_1.entities.AddressEntity;
-import com.example.dev_j200ee_lab1_1.entities.ClientEntity;
-import com.example.dev_j200ee_lab1_1.repository.AppReposI;
+import com.example.dev_j210_lab1_1.entities.AddressEntity;
+import com.example.dev_j210_lab1_1.entities.ClientEntity;
+import com.example.dev_j210_lab1_1.repository.AppReposI;
 import jakarta.ejb.EJB;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 @WebServlet(name = "ServletCreate", value = "/servlet-create")
 public class ServletCreate extends HttpServlet {
@@ -31,13 +32,9 @@ public class ServletCreate extends HttpServlet {
         out.println("<tr>");
         out.println(" <td>Данные клиента</td>");
         out.println("</tr>");
-//        out.println("<tr>");
-//        out.println(" <td>cliendid</td>");
-//        out.println("<td><input type=\"cliendid\" min=\"0\" name=\"cliendid\" required></td>");
-//        out.println("</tr>");
         out.println("<tr>");
         out.println("<td>client_name</td>");
-        out.println("<td><input type=\"client_name\" name=\"client_name\" maxlength=\"100\" pattern=\"[\\u0401\\u0451\\u0410-\\u044f\\-\\,\\.\\s]\" placeholder=\"max 100 simbols\" required></td>");
+        out.println("<td><input type=\"client_name\" name=\"client_name\" maxlength=\"100\" pattern=\"[а-яА-Я,.-]{1,100}\" placeholder=\"max 100 simbols\" required></td>");
         out.println("</tr>");
         out.println("<tr>");
         out.println("<td>type</td>");
@@ -48,9 +45,6 @@ public class ServletCreate extends HttpServlet {
         out.println("</select></td>");
         out.println("</tr>");
         out.println("<tr>");
-//        out.println("<td>added</td>");
-//        out.println("<td><input type=\"added\" name=\"Добавлен (дата)\" pattern=\"[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])\" placeholder=\"yyyy-mm-dd\" required></td>");
-//        out.println("</tr>");
         out.println("<tr>");
         out.println(" <td>Данные устройства</td>");
         out.println("</tr>");
@@ -71,12 +65,9 @@ public class ServletCreate extends HttpServlet {
         out.println("<td><input type=\"address\" name=\"address\" maxlength=\"200\" placeholder=\"max 200 simbols\" required></td>");
         out.println("</tr>");
         out.println("</tr>");
-        //out.println("<td>Клиент</td>");
-        //out.println("<td><input type=\"client\" name=\"client\" required></td>");
         out.println("</tr>");
         out.println("<tr>");
         out.println("<td><input type=\"submit\" value=\"Записать\"></td>");
-        //out.println("<td><input type=\"add\" value=\"Добавить адресс\"></td>");
         out.println("</tr>");
         out.println("</form>");
         out.println("</body></html>");
@@ -87,6 +78,11 @@ public class ServletCreate extends HttpServlet {
 
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8");
+        if   (checkParameterValue(req.getParameter("ip"),req.getParameter("mac"))){
+            throw new UnsupportedOperationException("Такой IP или MAC уже существует");
+
+            //resp.setStatus(500,"Такой IP или MAC уже существует");
+        }
         ClientEntity client1 = new ClientEntity();
         client1.setClientName(req.getParameter("client_name"));
         client1.setcType(req.getParameter("c_type"));
@@ -104,7 +100,14 @@ public class ServletCreate extends HttpServlet {
 
     }
 
-
+    public boolean checkParameterValue (String ip, String mac){
+        ArrayList<AddressEntity> addressEntityArrayList = (ArrayList<AddressEntity>) repository.findAll(AddressEntity.class);
+        for (AddressEntity address: addressEntityArrayList){
+            if (address.getIp().equals(ip)) return true;
+            if (address.getMac().equals(mac)) return true;
+        }
+        return false;
+    }
 
     @Override
     public void destroy() {

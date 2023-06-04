@@ -1,7 +1,7 @@
-package com.example.dev_j200ee_lab1_1.repository;
+package com.example.dev_j210_lab1_1.repository;
 
-import com.example.dev_j200ee_lab1_1.entities.AddressEntity;
-import com.example.dev_j200ee_lab1_1.entities.ClientEntity;
+import com.example.dev_j210_lab1_1.entities.AddressEntity;
+import com.example.dev_j210_lab1_1.entities.ClientEntity;
 import jakarta.ejb.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -60,12 +60,12 @@ private EntityManager em;
     }
 
     @Override
-    public ClientEntity findClientById(int id) {
-        return em.find(ClientEntity.class, id);
+    public ClientEntity findClientById(int clientid) {
+        return em.find(ClientEntity.class, clientid);
     }
     @Override
-    public AddressEntity findAddressById(int id) {
-        return em.find(AddressEntity.class, id);
+    public AddressEntity findAddressById(int addressid) {
+        return em.find(AddressEntity.class, addressid);
     }
     @Override
     public <T> T findById(Class<T> clazz, int id) {

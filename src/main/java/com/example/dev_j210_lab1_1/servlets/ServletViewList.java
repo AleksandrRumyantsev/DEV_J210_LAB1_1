@@ -1,8 +1,8 @@
-package com.example.dev_j200ee_lab1_1.servlets;
+package com.example.dev_j210_lab1_1.servlets;
 
-import com.example.dev_j200ee_lab1_1.entities.AddressEntity;
-import com.example.dev_j200ee_lab1_1.entities.ClientEntity;
-import com.example.dev_j200ee_lab1_1.repository.AppReposI;
+import com.example.dev_j210_lab1_1.entities.AddressEntity;
+import com.example.dev_j210_lab1_1.entities.ClientEntity;
+import com.example.dev_j210_lab1_1.repository.AppReposI;
 import jakarta.ejb.EJB;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -83,8 +83,10 @@ public class ServletViewList extends HttpServlet {
                 out.println("<td>" + address.getModel() + "</td>");
                 out.println("<td>" + address.getAddress() + "</td>");
                 out.println("<td>  <a href=\"ServletDelete?clientid=" + client.getClientid() + "&amp;addressid="+ address.getAddressid() + "\">Delete</a></td>");
-                out.println("<td>  <a href=\"ServletUpdate?clientid=" + client.getClientid() + "&amp;addressid="+ address.getAddressid() + "\">Update</a></td>");
-                out.println("<td>  <a href=\"ServletAddAddress?clientid=" + client.getClientid() + "\">Add address</a></td>");
+                out.println("<td>  <a href=\"ServletUpdate?clientid=" + client.getClientid() + "&amp;addressid="+ address.getAddressid() + "&amp;operation=update\">Update</a></td>");
+                out.println("<td>  <a href=\"ServletUpdate?clientid=" + client.getClientid() + "&amp;addressid="+ address.getAddressid() + "&amp;operation=addaddress\">Add address</a></td>");
+                //out.println("<td>  <a href=\"ServletAddAddress\">Add address</a></td>");
+                //out.println("<td>  <a href=\"ServletAddAddress?clientid=" + client.getClientid() + "\">Add address</a></td>");
                 out.println("</tr>");
             }
         }

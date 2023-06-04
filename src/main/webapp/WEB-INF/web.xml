@@ -5,7 +5,7 @@
          version="5.0">
     <servlet>
         <servlet-name>/servlet-create</servlet-name>
-        <servlet-class>com.example.dev_j200ee_lab1_1.servlets.ServletCreate</servlet-class>
+        <servlet-class>com.example.dev_j210_lab1_1.servlets.ServletCreate</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>/servlet-create</servlet-name>

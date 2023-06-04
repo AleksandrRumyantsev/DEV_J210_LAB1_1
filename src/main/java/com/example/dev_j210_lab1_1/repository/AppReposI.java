@@ -1,7 +1,7 @@
-package com.example.dev_j200ee_lab1_1.repository;
+package com.example.dev_j210_lab1_1.repository;
 
-import com.example.dev_j200ee_lab1_1.entities.AddressEntity;
-import com.example.dev_j200ee_lab1_1.entities.ClientEntity;
+import com.example.dev_j210_lab1_1.entities.AddressEntity;
+import com.example.dev_j210_lab1_1.entities.ClientEntity;
 
 import jakarta.ejb.Local;
 

@@ -1,6 +1,6 @@
-package com.example.dev_j200ee_lab1_1.servlets;
+package com.example.dev_j210_lab1_1.servlets;
 
-import com.example.dev_j200ee_lab1_1.repository.AppReposI;
+import com.example.dev_j210_lab1_1.repository.AppReposI;
 import jakarta.ejb.EJB;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

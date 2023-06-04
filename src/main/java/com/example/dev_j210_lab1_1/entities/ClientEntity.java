@@ -1,4 +1,4 @@
-package com.example.dev_j200ee_lab1_1.entities;
+package com.example.dev_j210_lab1_1.entities;
 
 import jakarta.persistence.*;
 
